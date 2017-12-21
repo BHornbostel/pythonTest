@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Black Belt</title>
+</head>
+<body>
+    <h1>Adventure Time</h1>
+    <h1>Register</h1>
+        <form action="/register" method="post">
+            {% csrf_token %}
+            First Name: <input type="text" name="first"><br>
+            Username: <input type="text" name="username"><br>
+            Password: <input type="password" name="password"><br>
+            Confirm Password: <input type="password" name="confirm"><br>
+            <input type="submit" value="Register">
+        </form>
+    
+    <hr>
+    
+    <h1>Login</h1>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            Username: <input type="text" name="username"><br>
+            Password: <input type="password" name="password"><br>
+            <input type="submit" value="Login">
+        </form>
+    
+        {%if messages %}
+        <ul>
+            {% for message in messages%}
+            <li style="color: red;">{{message}}</li>
+            {%endfor%}
+        </ul>
+        {% endif %} 
+</body>
+</html>

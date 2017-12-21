@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+    <h3>Welcome Back {{user.first_name}}</h3>
+    Your Trips
+    <table>
+        <th>Destination</th>
+        <th>Start</th>
+        <th>end</th>
+        <th>Plan</th>
+        {%for trip in userstrip%}
+            <tr><td><a href="travels/destinations/{{trip.id}}">{{trip.destination}}</a></td><td>{{trip.start_date}}</td>
+            <td>{{trip.end_date}}</td><td>{{trip.description}}</td>
+            </tr>
+        {%endfor%}
+    </table>
+    other trips
+    <table>
+        <th>Name</th>
+        <th>Destination</th>
+        <th>Start</th>
+        <th>end</th>
+        <th>join</th>
+        {%for trip in trips%}
+            <tr><td>{{trip.created_by.first_name}}</td>
+                <td><a href="travels/destinations/{{trip.id}}">{{trip.destination}}</a></td>
+                <td>{{trip.start_date}}</td><td>{{trip.end_date}}</td>
+                <td><a href="/travels/join/{{trip.id}}">join</a></td>
+            </tr>
+        {%endfor%}
+    </table>
+    <a href="/travels/add"><Button>add Travel Plan</Button></a>
+    <a href="/logout"><Button>Logout</Button></a>
+</body>
+</html>

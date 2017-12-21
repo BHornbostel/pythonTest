@@ -1,0 +1,10 @@
+<h1>{{trip.destination}}</h1>
+Planned by: {{trip.created_by.first_name}}<Br>
+Description: {{trip.description}}<br>
+From: {{trip.start_date}}<Br>
+To: {{trip.end_date}}<Br>
+
+   <h1>Others going on this trip</h1>
+   {{trip.users._first_name}}
+   <a href="/travels"><Button>home</Button></a>
+   <a href="/logout"><Button>Logout</Button></a>
